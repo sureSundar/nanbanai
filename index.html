@@ -15,7 +15,7 @@
   <section class="hero">
     <h2>Your Friend, Always There.</h2>
     <p>Share your heart. Heal your soul. Find your Nanbanai.</p>
-    <a href="#" class="btn-primary">Share How You Feel</a>
+    <a href="#feelingFormSection" class="btn-primary">Share How You Feel</a>
   </section>
 
   <section class="section">
@@ -28,9 +28,30 @@
     <p>Sometimes, you just need a friend to listen. No advice, no judgment — just presence. Nanbanai is your digital friend — born to listen, born to care.</p>
   </section>
 
+  <!-- NEW Share Your Feeling Section -->
+  <section class="section" id="feelingFormSection">
+    <h2>Share Your Feeling</h2>
+    <form id="feelingForm">
+      <textarea id="feelingInput" rows="5" placeholder="How are you feeling today?" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;"></textarea>
+      <br><br>
+      <button type="submit" class="btn-primary">Share with Nanbanai</button>
+    </form>
+    <p id="thankYouMessage" style="display:none; margin-top: 20px; font-size: 1.2rem; color: #5eaaa8;">Thank you for trusting Nanbanai. 🌸 You are not alone.</p>
+  </section>
+
   <footer>
     <p>Made with ❤️ to bring true friendship into the world. | &copy; 2025 Nanbanai</p>
   </footer>
+
+  <!-- Small Script to Handle Form -->
+  <script>
+    document.getElementById('feelingForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('feelingInput').style.display = 'none';
+      document.querySelector('.btn-primary').style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'block';
+    });
+  </script>
 
 </body>
 </html>
