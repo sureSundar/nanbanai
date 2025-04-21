@@ -2,19 +2,16 @@ import os
 from flask import Flask, render_template, request, session, jsonify
 from openai import OpenAI
 
+from openai import OpenAI
+client = OpenAI()
+
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "change_this!")  # for session
 
 # initialize OpenAI client with your ChatGPT Plus key
 openai = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
-SYSTEM_PROMPT = {
-    "role": "system",
-    "content": (
-        "You’re an empathetic companion. "
-        "Respond with warmth and understanding to any feelings the user shares."
-    )
-}
+SYSTEM_PROMPT = "You’re an empathetic companion.Respond with warmth and understanding to any feelings the user shares."
 
 
 def get_history():
@@ -26,7 +23,7 @@ def get_history():
 
 @app.route("/")
 def index():
-    return render_template("chat.html")
+    return render_template("index.html")
 
 
 @app.route("/chat", methods=["POST"])
@@ -37,16 +34,16 @@ def chat():
     history.append(user_msg)
 
     # call ChatGPT
-    resp = openai.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=history
+    response = client.responses.create(
+        model="gpt-4.1",
+        input=SYSTEM_PROMPT + data["message"]
     )
-    assistant_msg = resp.choices[0].message
+    assistant_msg = response.output_text
     # append assistant’s reply to history
     history.append(assistant_msg)
     session["history"] = history
 
-    return jsonify({"reply": assistant_msg["content"]})
+    return jsonify({"reply": assistant_msg})
 
 
 if __name__ == "__main__":

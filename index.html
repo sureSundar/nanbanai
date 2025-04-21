@@ -15,7 +15,17 @@
   <section class="hero">
     <h2>Your Friend, Always There.</h2>
     <p>Share your heart. Heal your soul. Find your Nanbanai.</p>
-    <a href="#feelingFormSection" class="btn-primary">Share How You Feel</a>
+    <div id="chat-window">
+      <!-- messages will go here -->
+    </div>
+  
+    <form id="chat-form">
+      <input id="user-input" autocomplete="off" placeholder="Share how you feel…" required />
+      <button type="submit">Share How You Feel</button>
+    </form>
+  
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+    
   </section>
 
   <section class="section">
