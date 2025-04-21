@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nanbanai - Your Friend, Always There</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- put this wherever your header/logo lives -->
+<header>
+  <a href="{{ url_for('index') }}">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Nanbanai Logo" />
+  </a>
+</header>
+  <section class="hero">
+    <h2>Your Friend, Always There.</h2>
+    <p>Share your heart. Heal your soul. Find your Nanbanai.</p>
+    <div id="chat-window">
+      <!-- messages will go here -->
+    </div>
+  
+    <form id="chat-form">
+      <input id="user-input" autocomplete="off" placeholder="Share how you feel…" required />
+      <button type="submit">Share How You Feel</button>
+    </form>
+  
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+    
+  </section>
+
+  <section class="section">
+    <h2>How It Works</h2>
+    <p>1. Tell us how you feel.<br>2. Receive a caring response.<br>3. Grow emotionally every day.</p>
+  </section>
+
+  <section class="section">
+    <h2>About Nanbanai</h2>
+    <p>Sometimes, you just need a friend to listen. No advice, no judgment — just presence. Nanbanai is your digital friend — born to listen, born to care.</p>
+  </section>
+  <footer>
+    <p>Made with ❤️ to bring true friendship into the world. | &copy; 2025 Nanbanai</p>
+  </footer>
+</body>
+</html>
