@@ -38,7 +38,7 @@ def chat():
 
     # call ChatGPT
     resp = openai.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-3.5-turbo",
         messages=history
     )
     assistant_msg = resp.choices[0].message
