@@ -16,6 +16,58 @@ header .logo {
   margin: 0 auto;
   display: block;
 }
+/* CSS */
+.chat-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  font-family: sans-serif;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.message .label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.message .text {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  max-width: 80%;
+  line-height: 1.4;
+}
+
+/* User (right-aligned) */
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.user .text {
+  background-color: #DCF8C6;  /* light green bubble */
+  color: #000;
+}
+
+/* Assistant (left-aligned) */
+.message.assistant {
+  justify-content: flex-start;
+}
+
+.message.assistant .text {
+  background-color: #F1F0F0;  /* light gray bubble */
+  color: #000;
+}
+
+.logo {
+  max-width: 200px;   /* or whatever width you’d like */
+  height: auto;       /* preserves aspect ratio */
+  display: block;     /* avoids inline-layout oddities */
+  margin: 1rem auto;  /* centers it with some breathing room */
+}
 
 .hero {
   text-align: center;

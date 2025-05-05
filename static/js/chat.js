@@ -6,7 +6,10 @@
 $("#chat-form").on("submit", async function(e) {
   e.preventDefault();
   function appendMessage1(sender, text){
-    $("#chat-window").append(sender+":"+text+"<BR/>");
+    if (sender == "assistant")
+    $("#chat-window").append("<div class='message assistant'><span class='label'>Nanban AI :</span><span class='text'>" + text + "</span></div>");
+    else if (sender == "user")
+      $("#chat-window").append("<div class='message user'><span class='label'>User:</span><span class='text'>" + text + "</span></div>");
     };
   function appendMessage(sender, text){
     appendMessage1(sender,text)
